@@ -6,6 +6,7 @@ import Nav from "./nav";
 import Auth from "./auth/Auth";
 import RedirectUrl from "./RedirectUrl";
 import Public from "./Public";
+import Private from "./Private";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class App extends Component {
           <Route
             path="/profile"
             render={(props) =>
-              this.auth.isAuthenticated ? (
+              this.auth.isAuthenticated() ? (
                 <Profile auth={this.auth} {...props} />
               ) : (
                 <Redirect to="/" />
@@ -37,6 +38,16 @@ class App extends Component {
             }
           />
           <Route path="/public" component={Public} />
+          <Route
+            path="/private"
+            render={(props) =>
+              this.auth.isAuthenticated() ? (
+                <Private auth={this.auth} {...props} />
+              ) : (
+                this.auth.login()
+              )
+            }
+          />
         </div>
       </>
     );
