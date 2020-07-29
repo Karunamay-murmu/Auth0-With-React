@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import Nav from "./nav";
 import Auth from "./auth/Auth";
 import RedirectUrl from "./RedirectUrl";
+import Public from "./Public";
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class App extends Component {
               )
             }
           />
+          <Route path="/public" component={Public} />
         </div>
       </>
     );

@@ -14,6 +14,9 @@ export default class nav extends Component {
             <Link to="/Profile">Profile</Link>
           </li>
           <li>
+            <Link to="/public">Public</Link>
+          </li>
+          <li>
             <button onClick={isAuthenticated() ? logout : login}>
               {isAuthenticated() ? "Log Out" : "Log In"}
             </button>
